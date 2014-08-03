@@ -6,7 +6,10 @@ public class LineTest : MonoBehaviour {
   LineRenderer lineRenderer;
   Vector3 start, direction;
   float length, velocity, range, time;
+  public Color c1 = Color.black;
+  public Color c2 = new Color(1, 0, 1, 0);
   // Use this for initialization
+  
   void Start () {
     lineRenderer = GetComponent<LineRenderer>();
     lineRenderer.SetVertexCount(2);
@@ -21,6 +24,9 @@ public class LineTest : MonoBehaviour {
     velocity = 1.0f;
 
     lineRenderer.SetWidth(0.1f, 0.01f);
+    lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
+    //lineRenderer.material = new Material(Shader.Find("Transparent/Diffuse"));
+    lineRenderer.SetColors(c1, c2);
   }
   
   // Update is called once per frame
